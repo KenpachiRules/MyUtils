@@ -1,0 +1,22 @@
+apply plugin: 'scala'
+apply plugin: 'maven-publish'
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+}
+
+publishing{
+  publications {
+       mavenJava(MavenPublication) {
+        groupId = "com.hari.learning"
+        artifactId = "my.scalautils"   
+        version = "1.0.0"
+        from components.java
+    }
+  }
+}
+
+dependencies {
+  implementation 'org.scala-lang:scala-library:2.11.8'
+}
