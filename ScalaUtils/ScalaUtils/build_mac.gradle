@@ -1,22 +1,36 @@
 apply plugin: 'scala'
 apply plugin: 'maven-publish'
+apply plugin: 'eclipse'
 
 repositories {
-  mavenCentral()
-  mavenLocal()
+	mavenCentral()
+	mavenLocal()
 }
 
 publishing{
-  publications {
-       mavenJava(MavenPublication) {
-        groupId = "com.hari.learning"
-        artifactId = "my.scalautils"   
-        version = "1.0.0"
-        from components.java
-    }
-  }
+	publications {
+		mavenJava(MavenPublication) {
+			groupId = "com.hari.learning"
+			artifactId = "my.scalautils"
+			version = "1.0.0"
+			from components.java
+		}
+	}
 }
 
 dependencies {
-  implementation 'org.scala-lang:scala-library:2.11.8'
+	implementation 'org.scala-lang:scala-library:2.11.8'
+	testCompile 'org.testng:testng:6.8'
 }
+
+task copyTestDeps(type:Copy) {
+	from configurations.testCompile
+	into 'build/deps/test'
+}
+
+test {
+	useTestNG{
+	   suites 'src/test/resources/testLogging.xml'	
+	}
+}
+

@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MyLoggerTestSuite" verbose="1">
+	<test name="TestLogging">
+		<classes>
+			<class name="com.hari.learning.utils.scala.test.MyLoggerTest" />
+		</classes>
+	</test>
+</suite>
