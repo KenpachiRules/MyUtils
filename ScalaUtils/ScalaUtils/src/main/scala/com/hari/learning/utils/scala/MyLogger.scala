@@ -1,6 +1,6 @@
 package com.hari.learning.utils.scala
 
-import java.util.logging.{ LogManager, Logger, Level }
+import java.util.logging.{ Logger, Level }
 
 object MyLogger {
 
